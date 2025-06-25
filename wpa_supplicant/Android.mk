@@ -18,7 +18,7 @@ LOCAL_PATH := $(call my-dir)
 
 ifeq ($(WPA_SUPPLICANT_VERSION),VER_0_8_X)
     WPA_SUPPL_DIR = external/wpa_supplicant_8
-    WPA_SRC_FILE :=
+#    WPA_SRC_FILE :=
 
 ifneq ($(BOARD_WPA_SUPPLICANT_DRIVER),)
     CONFIG_DRIVER_$(BOARD_WPA_SUPPLICANT_DRIVER) := y

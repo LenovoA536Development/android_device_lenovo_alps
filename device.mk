@@ -41,8 +41,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
+    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
 
 PRODUCT_COPY_FILES += \
@@ -50,26 +49,22 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
 	frameworks/native/data/etc/android.hardware.camera.manual_sensor.xml:system/etc/permissions/android.hardware.camera.manual_sensor.xml
 
-	
 # GPS
 PRODUCT_COPY_FILES += \
-     $(DEVICE_PATH)/rootdir/system/etc/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
+    $(DEVICE_PATH)/rootdir/system/etc/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
 
-# Audio	
+# Audio
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/rootdir/system/etc/media_profiles.xml:system/etc/media_profiles.xml \
     $(DEVICE_PATH)/rootdir/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
-    $(DEVICE_PATH)/rootdir/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
     $(DEVICE_PATH)/rootdir/system/etc/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml
+    $(DEVICE_PATH)/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
 
 # Thermal
 PRODUCT_COPY_FILES += \
-     $(DEVICE_PATH)/rootdir/system/etc/thermal/thermal.conf:system/etc/.tp/thermal.conf \
-     $(DEVICE_PATH)/rootdir/system/etc/thermal/.ht120.mtc:system/etc/.tp/.ht120.mtc \
-     $(DEVICE_PATH)/rootdir/system/etc/thermal/thermal.off.conf:system/etc/.tp/thermal.off.conf
+    $(DEVICE_PATH)/rootdir/system/etc/thermal/thermal.conf:system/etc/.tp/thermal.conf \
+    $(DEVICE_PATH)/rootdir/system/etc/thermal/.ht120.mtc:system/etc/.tp/.ht120.mtc \
+    $(DEVICE_PATH)/rootdir/system/etc/thermal/thermal.off.conf:system/etc/.tp/thermal.off.conf
 
 # Keylayout
 PRODUCT_COPY_FILES += \
@@ -80,7 +75,7 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/rootdir/system/etc/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
     $(DEVICE_PATH)/rootdir/system/etc/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
     $(DEVICE_PATH)/rootdir/system/etc/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny
-	
+
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 # RAMDISK
@@ -102,16 +97,14 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     tinymix
 
-USE_CUSTOM_AUDIO_POLICY := 1
-
 # Wifi
- PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
     dhcpcd.conf \
     wpa_supplicant \
     wpa_supplicant.conf
-	
+
 PRODUCT_PACKAGES += \
     librs_jni \
     com.android.future.usb.accessory
@@ -125,10 +118,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     setup_fs \
     e2fsck
-    
-PRODUCT_PACKAGES += \
-    libxlog
-    
+
 PRODUCT_PACKAGES += \
     libsprout
     
@@ -137,9 +127,6 @@ PRODUCT_PACKAGES += \
     
 PRODUCT_PACKAGES += \
     Snap
-
-PRODUCT_PACKAGES += \
-    FMRadio
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
 	ro.crypto.state=unencrypted \
@@ -158,8 +145,4 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-filter=speed \
-    dalvik.vm.dex2oat-swap=false	
-
-# logd
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/tools/logd:system/bin/logd
+    dalvik.vm.dex2oat-swap=false
